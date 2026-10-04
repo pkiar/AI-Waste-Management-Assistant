@@ -33,7 +33,7 @@ It's organised into 5 branches
 
 | File | Purpose |
 |---|---|
-| `ecosort_final.ipynb` | **The final pipeline.** Builds the final models and runs the assistant. Every choice has a pointer to its evidence. |
+| `final.ipynb` | **The final pipeline.** Builds the final models and runs the assistant. Every choice has a pointer to its evidence. |
 | `exploration_and_preparation.ipynb` ([README](notebooks/README_part1.md)) | Data exploration, the split problem and its fix, pipelines |
 | `cnn_classifier.ipynb` ([README](notebooks/README_part2.md)) | The CNN: model, training, mistakes, tuning |
 | `text_classifier_simple.ipynb` ([README](notebooks/README_part3.md)) | The text classifier: baselines, cross-validation, mistake analysis, embeddings |
