@@ -56,11 +56,11 @@ Put these next to the notebook (they are not in the repository):
 - `RealWaste/` : the RealWaste image dataset, one sub-folder per class (Cardboard, Food Organics, Glass, Metal, Miscellaneous Trash, Paper, Plastic, Textile Trash, Vegetation).
 - `waste_descriptions.csv` and `waste_policy_documents.json` : the course data files.
 
-## Running `ecosort_final.ipynb`
+## Running `final.ipynb`
 
-- **Run all**, or run the two halves separately. Part A (Steps 1 to 12) uses TensorFlow. Part B (Steps 13 to 27) uses PyTorch and TensorFlow and only needs files from `artifacts/`, so you can restart the kernel between the halves to save memory.
-- Everything the notebook creates goes into `artifacts/`: `waste_cnn.keras`, `waste_rag_model/`, `text_model.joblib`, `text_splits.csv`, `image_test_paths.csv`.
-- If `artifacts/waste_rag_model` exists, the generator is loaded instead of fine-tuned again. Set `FORCE_RETRAIN = True` to train again.
+- **Run all**, or run the two halves separately. Part A (Steps 1 to 12) uses TensorFlow. Part B (Steps 13 to 27) uses PyTorch and TensorFlow and only needs files, so you can restart the kernel between the halves to save memory.
+- Everything the notebook creates goes into : `waste_cnn.keras`, `waste_rag_model/`, `text_model.joblib`, `text_splits.csv`, `image_test_paths.csv`.
+- If `waste_rag_model` exists, the generator is loaded instead of fine-tuned again. Set `FORCE_RETRAIN = True` to train again.
 - Approximate time on a CPU, from the part notebooks: Part A about 10 minutes; Part B about 25 minutes the first time (the generator fine-tuning is about 20), a few minutes afterwards.
 - Images are read from file paths in batches and nothing large is cached, to keep memory use low.
 
