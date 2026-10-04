@@ -27,15 +27,18 @@ It joins three models:
 | Instruction generator | Category to recycling instructions, grounded in policy documents | Hybrid retrieval plus a fine-tuned `flan-t5-small` (PyTorch / transformers) |
 
 ## Where to look
+AI-Waste-Management-Assistant https://github.com/pkiar/AI-Waste-Management-Assistant/tree/main
+
+It's organised into 5 branches 
 
 | File | Purpose |
 |---|---|
 | `ecosort_final.ipynb` | **The final pipeline.** Builds the final models and runs the assistant. Every choice has a pointer to its evidence. |
-| `notebooks/part1_exploration_and_preparation.ipynb` ([README](notebooks/README_part1.md)) | Data exploration, the split problem and its fix, pipelines |
-| `notebooks/part2_cnn_classifier.ipynb` ([README](notebooks/README_part2.md)) | The CNN: model, training, mistakes, tuning |
-| `notebooks/part3_text_classifier_simple.ipynb` ([README](notebooks/README_part3.md)) | The text classifier: baselines, cross-validation, mistake analysis, embeddings |
-| `notebooks/part4_rag_generator.ipynb` ([README](notebooks/README_part4.md)) | Retrieval, fine-tuning, grounding tests, sampling, checker, held-out category |
-| `notebooks/part5_integrated_assistant.ipynb` ([README](notebooks/README_part5.md)) | Confidence study, the assistant, end-to-end test, feedback |
+| `exploration_and_preparation.ipynb` ([README](notebooks/README_part1.md)) | Data exploration, the split problem and its fix, pipelines |
+| `cnn_classifier.ipynb` ([README](notebooks/README_part2.md)) | The CNN: model, training, mistakes, tuning |
+| `text_classifier_simple.ipynb` ([README](notebooks/README_part3.md)) | The text classifier: baselines, cross-validation, mistake analysis, embeddings |
+| `part4_rag_generator.ipynb` ([README](notebooks/README_part4.md)) | Retrieval, fine-tuning, grounding tests, sampling, checker, held-out category |
+| `integrated_assistant.ipynb` ([README](notebooks/README_part5.md)) | Confidence study, the assistant, end-to-end test, feedback |
 
 The part notebooks show **how each decision was reached**. The final notebook shows **what was built**.
 
@@ -53,11 +56,11 @@ Put these next to the notebook (they are not in the repository):
 - `RealWaste/` : the RealWaste image dataset, one sub-folder per class (Cardboard, Food Organics, Glass, Metal, Miscellaneous Trash, Paper, Plastic, Textile Trash, Vegetation).
 - `waste_descriptions.csv` and `waste_policy_documents.json` : the course data files.
 
-## Running `final_notebook.ipynb`
+## Running `ecosort_final.ipynb`
 
-- **Run all**, or run the two halves separately. Part A (Steps 1 to 12) uses TensorFlow. Part B (Steps 13 to 27) uses PyTorch and TensorFlow and only needs files from , so you can restart the kernel between the halves to save memory.
-- Everything the notebook creates goes into : `waste_cnn.keras`, `waste_rag_model/`, `text_model.joblib`, `text_splits.csv`, `image_test_paths.csv`.
-- If `waste_rag_model` exists, the generator is loaded instead of fine-tuned again. Set `FORCE_RETRAIN = True` to train again.
+- **Run all**, or run the two halves separately. Part A (Steps 1 to 12) uses TensorFlow. Part B (Steps 13 to 27) uses PyTorch and TensorFlow and only needs files from `artifacts/`, so you can restart the kernel between the halves to save memory.
+- Everything the notebook creates goes into `artifacts/`: `waste_cnn.keras`, `waste_rag_model/`, `text_model.joblib`, `text_splits.csv`, `image_test_paths.csv`.
+- If `artifacts/waste_rag_model` exists, the generator is loaded instead of fine-tuned again. Set `FORCE_RETRAIN = True` to train again.
 - Approximate time on a CPU, from the part notebooks: Part A about 10 minutes; Part B about 25 minutes the first time (the generator fine-tuning is about 20), a few minutes afterwards.
 - Images are read from file paths in batches and nothing large is cached, to keep memory use low.
 
@@ -83,4 +86,9 @@ The final notebook prints its own numbers. They can differ slightly from the par
 ## Data and licence notes
 
 The RealWaste dataset has its own licence and terms; download it from its source. Check that you may publish the course CSV and JSON files before adding them to a public repository. The saved models are not committed (`artifacts/` is ignored); the notebook recreates them.
+
+## Dataset
+- RealWaste Dataset https://archive.ics.uci.edu/dataset/908/realwaste
+- waste_descriptions.csv https://drive.google.com/file/d/1G5MvOFlu7HXT107zDNVmJpMHtxITID7O/view?usp=drive_link
+- waste_policy_documents.json https://drive.google.com/file/d/1fZYdFWgm4fEKUDmGK0CrjW2nYH6ESDBT/view?usp=drive_link
 
