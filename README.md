@@ -53,7 +53,7 @@ Put these next to the notebook (they are not in the repository):
 - `RealWaste/` : the RealWaste image dataset, one sub-folder per class (Cardboard, Food Organics, Glass, Metal, Miscellaneous Trash, Paper, Plastic, Textile Trash, Vegetation).
 - `waste_descriptions.csv` and `waste_policy_documents.json` : the course data files.
 
-## Running `ecosort_final.ipynb`
+## Running `final_notebook.ipynb`
 
 - **Run all**, or run the two halves separately. Part A (Steps 1 to 12) uses TensorFlow. Part B (Steps 13 to 27) uses PyTorch and TensorFlow and only needs files from `artifacts/`, so you can restart the kernel between the halves to save memory.
 - Everything the notebook creates goes into `artifacts/`: `waste_cnn.keras`, `waste_rag_model/`, `text_model.joblib`, `text_splits.csv`, `image_test_paths.csv`.
